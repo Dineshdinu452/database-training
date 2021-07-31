@@ -1,0 +1,17 @@
+ git clone https://github.com/azurefirstacademy/database-training.git
+ 
+ folder / database_training
+ 
+ cd database_training
+ 
+  git checkout -b "rr-demo-using-git"
+  
+  git status
+  
+  git add -A
+  
+  git commit -m "Uplaoding Vegetables Data"
+  
+  Git push
+  
+  git push --set-upstream origin rr-demo-using-git
