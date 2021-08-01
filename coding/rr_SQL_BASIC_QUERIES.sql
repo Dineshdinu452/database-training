@@ -35,3 +35,51 @@ INSERT INTO source_data.DAILY_PRICING values (
 
 select * from source_data.DAILY_PRICING
 
+INSERT INTO 
+source_data.DAILY_PRICING
+(
+ProductGroupName,
+ProductName,
+StateName,
+Market_Center,
+price_date
+)
+values (
+'Vegetables',
+'Leafy Vegetable',
+'Andhra Pradesh',
+'Pattikonda',
+'01/01/2019'
+)
+
+UPDATE 
+source_data.DAILY_PRICING
+SET 
+Arrivals_in_tonnes=1,
+Unit_of_Arrivals='Tonnes',
+Origin ='NR',
+Variety ='Local',
+Minimum_Prices_in_Rs_quintals=1300,
+Maximum_Prices_in_Rs_quintals=1600,
+Modal_Prices_in_Rs_quintals=1500,
+Unit_of_Price='Rs/Quintal'
+where 
+StateName='Andhra Pradesh'
+
+delete *
+from
+source_data.DAILY_PRICING
+WHERE StateName='Andhra Pradesh'
+
+SELECT * FROM source_data.DAILY_PRICING
+
+DROP TABLE source_data.DAILY_PRICING
+
+SELECT UPPER(ProductGroupName) as ProductGroupName_UPPER
+,Lower(ProductName) as ProductName_LOWER FROM source_data.DAILY_PRICING
+WHERE StateName='Andhra Pradesh'
+
+SELECT ProductGroupName,count(*)
+FROM source_data.DAILY_PRICING
+GROUP BY ProductGroupName
+HAVING COUNT(*) > 1
